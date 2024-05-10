@@ -44,7 +44,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     }
 
     @Override
-    public User modifyUserInfo(UserForm user) {
+    public UserInfo modifyUserInfo(UserForm user) {
         User me = me();
         if (StringUtils.isNotEmpty(user.getAvatar())) {
             fileService.deleteImg(me.getAvatar());
@@ -58,7 +58,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             }
         }
         userMapper.updateById(me);
-        return me;
+        return getUserInfo(me);
     }
 
     @Override

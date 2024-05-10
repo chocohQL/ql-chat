@@ -1,7 +1,7 @@
 package com.ql.www.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import javafx.application.Application;
+import com.ql.www.domain.entity.Application;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

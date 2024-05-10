@@ -24,7 +24,7 @@ public class ChatController {
 
     @GetMapping("/lisConversation")
     public Response lisConversation(@RequestParam("userId") String userId) {
-        return Response.success(chatService.lisConversation(userId));
+        return Response.success(chatService.listConversation(userId));
     }
 
     @PostMapping("/sendChatHistory")

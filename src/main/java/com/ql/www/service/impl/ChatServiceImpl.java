@@ -55,7 +55,7 @@ public class ChatServiceImpl implements ChatService {
     }
 
     @Override
-    public List<ConversationInfo> lisConversation(String userId) {
+    public List<ConversationInfo> listConversation(String userId) {
         List<ConversationInfo> conversationInfos = new ArrayList<>();
         conversationMapper.selectList(new LambdaQueryWrapper<Conversation>().eq(Conversation::getUserId, userId))
                 .forEach(conversation -> {
@@ -109,6 +109,15 @@ public class ChatServiceImpl implements ChatService {
             }
         }
         return 0;
+    }
+
+    @Override
+    public void createConversation(Long userId, Long targetId, Integer type) {
+        Conversation conversation = new Conversation();
+        conversation.setType(type);
+        conversation.setUserId(userId);
+        conversation.setTargetId(targetId);
+        conversationMapper.insert(conversation);
     }
 
     private void updateFriendConversation(ChatHistory chatHistory) {

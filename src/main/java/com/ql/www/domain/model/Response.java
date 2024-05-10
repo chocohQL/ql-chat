@@ -9,7 +9,6 @@ public class Response extends HashMap<String, Object> {
     public static final String CODE = "code";
     public static final String MSG = "msg";
     public static final String DATA = "data";
-
     public static final String SUCCESS_MSG = "操作成功";
     public static final String ERROR_MSG = "操作失败";
 
@@ -20,12 +19,6 @@ public class Response extends HashMap<String, Object> {
         super.put(CODE, code);
         super.put(MSG, msg);
         super.put(DATA, data);
-    }
-
-    @Override
-    public Response put(String key, Object value) {
-        super.put(key, value);
-        return this;
     }
 
     public static Response success() {
@@ -50,5 +43,11 @@ public class Response extends HashMap<String, Object> {
 
     public static Response error(String msg, Object data) {
         return new Response(HttpStatus.ERROR, msg, null);
+    }
+
+    @Override
+    public Response put(String key, Object value) {
+        super.put(key, value);
+        return this;
     }
 }
