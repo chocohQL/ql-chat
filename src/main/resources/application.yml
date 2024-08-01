@@ -7,13 +7,13 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/ql_chat?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
     username: root
-    password: 517184867
+    password: password
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
   redis:
-    host: 1.12.220.218
+    host: host
     port: 6379
-    password: 517184867cat
+    password: password
   profiles:
     active: dev
 
